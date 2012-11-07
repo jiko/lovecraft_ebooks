@@ -3,7 +3,13 @@ LOVECRAFT EBOOKS
 
 This is a twitter bot based on [Markov-Sentence-Generator](https://github.com/jiko/Markov-Sentence-Generator) and [the_shrinkbot](https://github.com/jiko/the_shrinkbot). Shout-outs to [Harry Schwartz](https://github.com/hrs), [Vivek Haldar](https://github.com/vivekhaldar), and [widefidelity](https://twitter.com/widefidelity).
 
-Requires the 'twitter' pypi package: pip install twitter
+Requires:
+* Python 2.6 or later. Not tested with Python 3.
+* [pip](http://www.pip-installer.org/en/latest/installing.html)
+
+Once you have your environment setup, run:
+
+	pip install -r requirements.txt
 
 See init_twit.py for info on setting up your Twitter application.
 
