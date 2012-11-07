@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import init_twit as tw
-import markov, time, os
+import markov, time, os, re
 
 # make a separate file for these reusable functions: bot.py
 # main bot-specific app logic in app.py
@@ -51,6 +51,8 @@ if (markov.mapping=={}):
 
 while True:
 	results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
+	retweets = re.compile('rt\s',flags=re.I)
+	results = [response for response in results if not retweets.search(response['text'])]
 	if not results:
 		print "Nobody's talking to me...\n"
 	[reply(result) for result in results] 
