@@ -28,7 +28,7 @@ def tweet(irtsi=None,at=None):
 		log(error)
 	else:
 		if irtsi: 
-			status = "in reply to"+irtsi+": "+status
+			status = "In reply to "+irtsi+": "+status
 		log(status)
 
 def reply(mention):
