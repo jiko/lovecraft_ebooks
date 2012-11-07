@@ -54,8 +54,9 @@ while True:
 	retweets = re.compile('rt\s',flags=re.I)
 	results = [response for response in results if not retweets.search(response['text'])]
 	if not results:
-		print "Nobody's talking to me...\n"
-	[reply(result) for result in results] 
+		log("Nobody's talking to me...")
+	else:
+		[reply(result) for result in results] 
 	tweet()
-	print "Sweet Dreams...\n"
+	log("Sweet Dreams...")
 	time.sleep(7600) # waits for two hours
