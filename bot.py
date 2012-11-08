@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import init_twit as tw
-import markovgen, time, os, re
+import markovgen, time, re, random
 
 # make a separate file for these reusable functions: bot.py
 # main bot-specific app logic in app.py
@@ -15,7 +15,8 @@ def log(msg):
 	print msg
 
 def genTweet():
-	return markov.generate_markov_text(size=18)
+	wc = random.randint(7,18)
+	return markov.generate_markov_text(size=wc)
 
 def tweet(status,irtsi=None,at=None): 
 	try:
