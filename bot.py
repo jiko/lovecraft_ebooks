@@ -26,7 +26,7 @@ def tweet(status,irtsi=None,at=None):
 		else:
 			pass
 			tw.poster.statuses.update(status=status)
-	except tw.poster.TwitterHTTPError as error:
+	except tw.TwitterError as error:
 		log(error)
 	else:
 		if irtsi: 
