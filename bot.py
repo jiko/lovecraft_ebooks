@@ -15,7 +15,7 @@ def log(msg):
 	print msg
 
 def genTweet():
-	wc = random.randint(3,18)
+	wc = random.randint(6,18)
 	return markov.generate_markov_text(size=wc)
 
 def tweet(status,irtsi=None,at=None): 
