@@ -23,8 +23,9 @@ def tweet(irtsi=None,at=None):
 			status = "@"+at+" "+status
 			tw.poster.statuses.update(status=status,in_reply_to_status_id=irtsi)
 		else:
+			pass
 			tw.poster.statuses.update(status=status)
-	except TwitterHTTPError as error:
+	except tw.poster.TwitterHTTPError as error:
 		log(error)
 	else:
 		if irtsi: 
@@ -39,7 +40,7 @@ def reply(mention):
 		tw.last_id_replied = status_id
 	tweet(status_id,asker)
 
-markovLength = 3
+markovLength = 2
 
 corpus_files = []
 [corpus_files.append("corpus/"+files) for files in os.listdir("corpus") if files.endswith(".txt")]
