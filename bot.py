@@ -21,10 +21,10 @@ def tweet(status,irtsi=None,at=None):
 	try:
 		if at and irtsi:
 			status = "@"+at+" "+status
-			#tw.poster.statuses.update(status=status,in_reply_to_status_id=irtsi)
+			tw.poster.statuses.update(status=status,in_reply_to_status_id=irtsi)
 		else:
 			pass
-			#tw.poster.statuses.update(status=status)
+			tw.poster.statuses.update(status=status)
 	except tw.poster.TwitterHTTPError as error:
 		log(error)
 	else:
