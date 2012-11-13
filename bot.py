@@ -27,7 +27,7 @@ def tweet(status,irtsi=None,at=None):
 			pass
 			tw.poster.statuses.update(status=status)
 	except tw.TwitterError as error:
-		log(error)
+		log("".join(error))
 	else:
 		if irtsi: 
 			status = "In reply to "+irtsi+": "+status
@@ -44,9 +44,10 @@ def reply(txt,mention):
 	tweet(txt,status_id,asker)
 
 while True:
-	results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
-	retweets = re.compile('rt\s',flags=re.I)
-	results = [response for response in results if not retweets.search(response['text'])]
+	results = []
+	#results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
+	#retweets = re.compile('rt\s',flags=re.I)
+	#results = [response for response in results if not retweets.search(response['text'])]
 	if not results:
 		log("Nobody's talking to me...")
 	else:
