@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import init_twit as tw
-import markovgen, time, re, random
+import markovgen, time, re, random, codecs
 
 # make a separate file for these reusable functions: bot.py
 # main bot-specific app logic in app.py
@@ -10,7 +10,7 @@ with open(corpus_file) as text:
 	markov = markovgen.Markov(text)
 
 def log(msg):
-	with open('log','a') as f:
+	with codecs.open('log','a','utf-8') as f:
 		f.write(msg+"\n")
 	print msg
 
@@ -27,7 +27,7 @@ def tweet(status,irtsi=None,at=None):
 			pass
 			tw.poster.statuses.update(status=status)
 	except tw.TwitterError as error:
-		log(" ".join(error.args))
+		log(error.response_data)
 	else:
 		if irtsi: 
 			status = "In reply to "+irtsi+": "+status
