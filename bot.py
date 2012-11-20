@@ -10,9 +10,9 @@ with open(corpus_file) as text:
 	markov = markovgen.Markov(text)
 
 def log(msg):
+	print msg
 	with codecs.open('log','a','utf-8') as f:
 		f.write(msg+"\n")
-	print msg
 
 def genTweet():
 	wc = random.randint(6,18)
