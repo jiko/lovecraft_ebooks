@@ -19,7 +19,7 @@ def tweet(status,irtsi=None,at=None):
 			status = "@"+at+" "+status
 			tw.poster.statuses.update(status=status,in_reply_to_status_id=irtsi)
 		else:
-			pass
+			print status	
 			tw.poster.statuses.update(status=status)
 	except tw.TwitterError:
 		print "Twitter Error"
