@@ -5,7 +5,7 @@ import markovgen, time, re, random
 # make a separate file for these reusable functions: bot.py
 # main bot-specific app logic in app.py
 
-corpus_file = 'corpus.txt'
+corpus_file = '/home/jk/Code/bots/lovecraft_ebooks/corpus.txt'
 with open(corpus_file) as text:
 	markov = markovgen.Markov(text)
 
@@ -19,7 +19,7 @@ def tweet(status,irtsi=None,at=None):
 			status = "@"+at+" "+status
 			tw.poster.statuses.update(status=status,in_reply_to_status_id=irtsi)
 		else:
-			print status	
+			#print status	
 			tw.poster.statuses.update(status=status)
 	except tw.TwitterError:
 		print "Twitter Error"
@@ -38,15 +38,15 @@ def reply(txt,mention):
 		txt = genTweet()
 	tweet(txt,status_id,asker)
 
-while True:
-	results = []
-	#results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
-	#retweets = re.compile('rt\s',flags=re.I)
-	#results = [response for response in results if not retweets.search(response['text'])]
-	if not results:
-		print "Nobody's talking to me..."
-	else:
-		[reply(genTweet(),result) for result in results] 
-	tweet(genTweet())
-	print "Sweet Dreams..."
-	time.sleep(7600) # waits for two hours
+#while True:
+results = []
+results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
+retweets = re.compile('rt\s',flags=re.I)
+results = [response for response in results if not retweets.search(response['text'])]
+if not results:
+	print "Nobody's talking to me..."
+else:
+	[reply(genTweet(),result) for result in results] 
+tweet(genTweet())
+#	print "Sweet Dreams..."
+#	time.sleep(7600) # waits for two hours

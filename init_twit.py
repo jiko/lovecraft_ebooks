@@ -23,6 +23,6 @@ poster = Twitter(
 		domain='api.twitter.com')
 
 # get the status_id of the last tweet to which you replied
-#last_id_replied = [tweet['in_reply_to_status_id'] for tweet in poster.statuses.user_timeline() if tweet['in_reply_to_status_id'] != None][0]
+last_id_replied = [tweet['in_reply_to_status_id'] for tweet in poster.statuses.user_timeline() if tweet['in_reply_to_status_id'] != None][0]
 # your bot's twitter handle
 handle = "lovecraft_ebook"
