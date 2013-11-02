@@ -1,6 +1,8 @@
 LOVECRAFT EBOOKS
 ======
 
+Note: I have not tested this code on Twitter API v1.1
+
 This is a twitter bot based on [Shabda Raaj's markovgen.py](http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/) and [the_shrinkbot](https://github.com/jiko/the_shrinkbot). Shout-outs to [Harry Schwartz](https://github.com/hrs), [Vivek Haldar](https://github.com/vivekhaldar), [widefidelity](https://twitter.com/widefidelity/status/266230134053425153), and [Shabda Raaj](http://agiliq.com/blog/author/shabda/).
 
 Requires:
