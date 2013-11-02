@@ -7,8 +7,8 @@ import os
 CONSUMER_KEY='MSkGnYHDUgDxZbTBDkfP8Q'
 CONSUMER_SECRET='BEN3D56OWddggyuYUUcENWK1OPmqVCy5EGIq1mg'
 
-# path to where your oauth credentials are stored 
-oauth_filename = os.environ.get('HOME', '') + os.sep + '.lovecraft_oauth'
+# path to where your oauth credentials are stored; by default .oauth in the same directory
+oauth_filename = os.path.dirname(__file__) + os.sep + '.oauth'
 # use the function 'from twitter.oauth import write_token_file' to create this file
 oauth_token, oauth_token_secret = read_token_file(oauth_filename)
 
@@ -19,7 +19,7 @@ poster = Twitter(
 	auth=OAuth(
 		oauth_token, oauth_token_secret, CONSUMER_KEY, CONSUMER_SECRET),
 		secure=True,
-		api_version='1',
+		api_version='1.1',
 		domain='api.twitter.com')
 
 # get the status_id of the last tweet to which you replied
