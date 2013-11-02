@@ -2,9 +2,7 @@
 import init_twit as tw
 import markovgen, time, re, random 
 
-# make a separate file for these reusable functions: bot.py
-# main bot-specific app logic in app.py
-
+# absolute path to corpus file
 corpus_file = '/home/jk/Code/bots/lovecraft_ebooks/corpus.txt'
 with open(corpus_file) as text:
 	markov = markovgen.Markov(text)
@@ -38,7 +36,6 @@ def reply(txt,mention):
 		txt = genTweet()
 	tweet(txt,status_id,asker)
 
-#while True:
 results = []
 results = tw.twitter.search(q="@"+tw.handle,since_id=tw.last_id_replied)['results']
 retweets = re.compile('rt\s',flags=re.I)
@@ -48,5 +45,5 @@ if not results:
 else:
 	[reply(genTweet(),result) for result in results] 
 tweet(genTweet())
-#	print "Sweet Dreams..."
-#	time.sleep(7600) # waits for two hours
+	print "Sweet Dreams..."
+	time.sleep(7600) # waits for two hours
